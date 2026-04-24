@@ -6,14 +6,14 @@ const { useState, useEffect, useRef, useMemo } = React;
 const GStore = (() => {
   const defaults = {
     endorsements: [
-      { from: 'a02', to: 'a01', note: 'Trained with Mikael. Cleanest leg lock entries I have rolled with.', date: 'APR 12 · 2026', serial: 'GRP-0014-ENDR' },
-      { from: 'a05', to: 'a02', note: 'Renata is the real deal. Closed guard specialist.', date: 'MAR 28 · 2026', serial: 'GRP-0011-ENDR' },
-      { from: 'a01', to: 'a03', note: 'Dallas brings folkstyle fundamentals nobody else teaches.', date: 'MAR 22 · 2026', serial: 'GRP-0009-ENDR' },
-      { from: 'a03', to: 'a01', note: 'Mikael rolls at black belt level and teaches like a coach.', date: 'FEB 18 · 2026', serial: 'GRP-0006-ENDR' },
+      { from: 'a03', to: 'a01', note: 'Rolled with Grimy at B-Team. He took my crucifix framework and made it something I hadn\'t seen. High Ground is the real deal.', date: 'APR 18 · 2026', serial: 'GRP-0028-ENDR' },
+      { from: 'a02', to: 'a01', note: 'My brother. Minot State mats to Colorado. If you want to learn the High Ground, there is only one person to learn it from.', date: 'APR 12 · 2026', serial: 'GRP-0019-ENDR' },
+      { from: 'a04', to: 'a01', note: 'Top pressure, wrestling entries, and the crucifix — train with him weekly. He pushes the whole room.', date: 'MAR 28 · 2026', serial: 'GRP-0014-ENDR' },
+      { from: 'a01', to: 'a02', note: 'Trick brings wrestling that actually translates. Front headlock series is a cheat code.', date: 'MAR 22 · 2026', serial: 'GRP-0011-ENDR' },
     ],
     purchased: new Set(['i03']),
     bookings: [],
-    followedAthletes: new Set(['a01', 'a05']),
+    followedAthletes: new Set(['a01', 'a03']),
     likedPosts: new Set(),
   };
   let state = defaults;

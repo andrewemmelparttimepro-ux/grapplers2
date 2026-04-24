@@ -72,12 +72,12 @@ function InstructionalDetail({ instructional: i, onBack, onPurchaseComplete }) {
   };
 
   const chapterTitles = [
-    'Framework & standing entries',
-    'Outside ashi — the foundation',
-    'Inside sankaku transitions',
-    'Hand fighting at 50/50',
-    'Heel hook vs. kneebar decisions',
-    'Defending & escaping',
+    'Framework & dominant top position',
+    'Reverse half — getting there from everywhere',
+    'Crucifix entries: turtle, side, half',
+    "The M-plata & its cousins",
+    "D'arce from the High Ground",
+    'Defending the comeback · escape chains',
   ];
   const playChapter = (n) => {
     // Chapter 1 is free for everyone; others require ownership

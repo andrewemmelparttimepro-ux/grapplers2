@@ -146,8 +146,17 @@ window.ResponsivePhone = ResponsivePhone;
 // ---- Top-level router -----------------------------------------------------
 function AppRoot() {
   // Route states: 'marketing' | 'onboarding' | 'app'
-  const [route, setRoute] = React.useState(() => localStorage.getItem(LS_ROUTE) || 'marketing');
-  const [role, setRole] = React.useState(() => localStorage.getItem('grapplers.role') || 'student');
+  // If the user has claimed a profile, we default to 'app' to skip re-onboarding.
+  const claim = typeof window.readClaim === 'function' ? window.readClaim() : null;
+  const [route, setRoute] = React.useState(() => {
+    const stored = localStorage.getItem(LS_ROUTE);
+    if (stored) return stored;
+    return claim ? 'app' : 'marketing';
+  });
+  const [role, setRole] = React.useState(() => {
+    if (claim) return 'athlete';
+    return localStorage.getItem('grapplers.role') || 'student';
+  });
   React.useEffect(() => { localStorage.setItem(LS_ROUTE, route); }, [route]);
   React.useEffect(() => { localStorage.setItem('grapplers.role', role); }, [role]);
 
@@ -204,11 +213,29 @@ function MarketingApp({ onEnter, onOpenCanvas }) {
   );
 }
 
-// Onboarding full-viewport wrapper
+// Onboarding full-viewport wrapper.
+// For student path: original OnboardingScreen.
+// For athlete path: OnboardingScreen returns role='athlete', then we insert
+// ClaimProfileScreen before handing off to the app.
 function OnboardingFlow({ onComplete, onBack }) {
+  // sub-route within onboarding: 'pick-role' → 'claim' (athletes only)
+  const [sub, setSub] = React.useState('pick-role');
+  const [pickedRole, setPickedRole] = React.useState('student');
+
+  const handlePick = (role) => {
+    setPickedRole(role);
+    if (role === 'athlete') setSub('claim');
+    else onComplete(role);
+  };
+  const handleClaim = (role, claim) => {
+    // claim is already persisted via writeClaim inside ClaimProfileScreen
+    onComplete(role);
+  };
+
   return (
-    <ResponsivePhone role="student" onExit={onBack}>
-      <OnboardingScreen onComplete={onComplete} />
+    <ResponsivePhone role={pickedRole} onExit={onBack}>
+      {sub === 'pick-role' && <OnboardingScreen onComplete={handlePick} />}
+      {sub === 'claim' && <ClaimProfileScreen onComplete={handleClaim} onBack={() => setSub('pick-role')} />}
     </ResponsivePhone>
   );
 }

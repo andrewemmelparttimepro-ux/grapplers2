@@ -42,7 +42,7 @@ function MarketingPage({ onEnter, onOpenCanvas }) {
       <section style={{ position: 'relative', padding: mobile ? '60px 22px 80px' : '120px 28px 140px', maxWidth: 1200, margin: '0 auto' }}>
         <div style={{ position: 'absolute', top: 0, right: 0, width: '60%', height: '100%', background: 'radial-gradient(ellipse at 80% 40%, rgba(30,111,255,0.18) 0%, transparent 60%)', pointerEvents: 'none' }} />
         <div style={{ position: 'relative', maxWidth: 920 }}>
-          <div className="g-eyebrow" style={{ color: 'var(--g-mat-hi)', marginBottom: 28, letterSpacing: '0.24em' }}>◈ GRAPPLERS · V.01 · MINOT, ND</div>
+          <div className="g-eyebrow" style={{ color: 'var(--g-mat-hi)', marginBottom: 28, letterSpacing: '0.24em' }}>◈ GRAPPLERS · V.01 · COLORADO SPRINGS · MINOT</div>
           <h1 style={{ fontFamily: 'var(--g-condensed)', fontSize: mobile ? 'clamp(54px, 13vw, 90px)' : 'clamp(60px, 10vw, 148px)', fontWeight: 800, lineHeight: 0.9, letterSpacing: '-0.02em', margin: 0, textTransform: 'uppercase' }}>
             The coach<br/>you can't find<br/>
             <span className="g-chrome-fill">is on Grapplers.</span>
@@ -61,9 +61,9 @@ function MarketingPage({ onEnter, onOpenCanvas }) {
           <div onClick={enter} style={{ position: 'absolute', right: -60, top: 80, width: 360, height: 520, borderRadius: 32, overflow: 'hidden', background: window.gPlaceholder('hero', { hue: 220 }), border: '1px solid var(--g-border)', boxShadow: '0 40px 120px rgba(0,0,0,0.6), 0 0 0 8px #111, 0 0 80px rgba(30,111,255,0.2)', transform: 'rotate(-2deg)', cursor: 'pointer' }}>
             <div style={{ position: 'absolute', inset: 0, background: 'radial-gradient(ellipse 70% 60% at 50% 100%, rgba(30,111,255,0.3), transparent 70%)' }} />
             <div style={{ position: 'absolute', inset: 0, padding: 32, display: 'flex', flexDirection: 'column', justifyContent: 'flex-end' }}>
-              <div className="g-eyebrow" style={{ color: 'rgba(255,255,255,0.6)', marginBottom: 10 }}>◈ VERIFIED · BLACK BELT · ADCC</div>
-              <div className="g-condensed" style={{ fontSize: 44, color: '#fff', lineHeight: 0.9 }}>MIKAEL<br/>CORDOVA</div>
-              <div style={{ fontFamily: 'var(--g-mono)', fontSize: 11, color: 'rgba(255,255,255,0.7)', letterSpacing: '0.08em', marginTop: 10 }}>47–9 · 31 SUBS · MINOT, ND · $180/HR</div>
+              <div className="g-eyebrow" style={{ color: 'rgba(255,255,255,0.6)', marginBottom: 10 }}>◈ VERIFIED · BLACK BELT · HIGH GROUND</div>
+              <div className="g-condensed" style={{ fontSize: 44, color: '#fff', lineHeight: 0.9 }}>OFFICER<br/>GRIMY</div>
+              <div style={{ fontFamily: 'var(--g-mono)', fontSize: 11, color: 'rgba(255,255,255,0.7)', letterSpacing: '0.08em', marginTop: 10 }}>52–14 · 33 SUBS · COLORADO SPRINGS · $200/HR</div>
               <div style={{ marginTop: 16, fontFamily: 'var(--g-mono)', fontSize: 10, color: 'var(--g-mat-hi)', letterSpacing: '0.18em' }}>TAP TO OPEN THE APP →</div>
             </div>
           </div>
@@ -74,10 +74,10 @@ function MarketingPage({ onEnter, onOpenCanvas }) {
       <section style={{ borderTop: '1px solid var(--g-border)', borderBottom: '1px solid var(--g-border)', background: 'var(--g-carbon)' }}>
         <div style={{ maxWidth: 1200, margin: '0 auto', padding: mobile ? '28px 18px' : '44px 28px', display: 'grid', gridTemplateColumns: mobile ? 'repeat(2, 1fr)' : 'repeat(4, 1fr)', gap: mobile ? 22 : 0 }}>
           {[
-            { v: '1,240', l: 'Verified athletes' },
-            { v: '14', l: 'US states' },
+            { v: '148', l: 'Verified athletes' },
+            { v: 'CO · TX · ND', l: 'Primary regions' },
             { v: '$0', l: 'Per-seat fees' },
-            { v: '701-339-9802', l: 'One phone number' },
+            { v: 'Wilson Bros.', l: 'Built by grapplers' },
           ].map((s, i) => (
             <div key={s.l} style={{ padding: mobile ? 0 : '0 20px', borderLeft: !mobile && i > 0 ? '1px solid var(--g-border)' : 'none' }}>
               <div className="g-condensed" style={{ fontSize: mobile ? 32 : 44, color: 'var(--g-fg-1)', lineHeight: 1 }}>{s.v}</div>
@@ -132,10 +132,10 @@ function MarketingPage({ onEnter, onOpenCanvas }) {
       <section style={{ background: 'var(--g-obsidian)', borderTop: '1px solid var(--g-border)', borderBottom: '1px solid var(--g-border)' }}>
         <div style={{ maxWidth: 1200, margin: '0 auto', padding: mobile ? '70px 22px' : '140px 28px', position: 'relative' }}>
           <div style={{ fontFamily: 'var(--g-condensed)', fontSize: mobile ? 'clamp(64px, 22vw, 150px)' : 'clamp(80px, 18vw, 280px)', fontWeight: 900, lineHeight: 0.85, letterSpacing: '-0.03em', textAlign: 'center', textTransform: 'uppercase' }}>
-            <span className="g-chrome-fill">BUILT IN MINOT.</span>
+            <span className="g-chrome-fill">MINOT MATS.<br/>COLORADO DIRT.</span>
           </div>
-          <div style={{ textAlign: 'center', fontSize: mobile ? 14 : 16, color: 'var(--g-fg-2)', maxWidth: 600, margin: '30px auto 0', lineHeight: 1.5 }}>
-            North Dakota has four black belts within 200 miles. We built Grapplers because that wasn't enough — and because the athletes most coaches in the Midwest should be learning from live 2,000 miles away.
+          <div style={{ textAlign: 'center', fontSize: mobile ? 14 : 16, color: 'var(--g-fg-2)', maxWidth: 620, margin: '30px auto 0', lineHeight: 1.5 }}>
+            Five years on the Minot State mats. Eight years coaching at Wilson Bros. in Colorado Springs. The people you can actually learn from aren't ranked on someone else's leaderboard — they're in gyms nobody flies to. Grapplers is the directory for them.
           </div>
         </div>
       </section>
@@ -219,7 +219,7 @@ function MarketingPage({ onEnter, onOpenCanvas }) {
           <div style={{ display: 'flex', gap: 18, alignItems: 'center' }}>
             <a onClick={openCanvas} style={{ fontFamily: 'var(--g-mono)', fontSize: 10, color: 'var(--g-fg-3)', letterSpacing: '0.1em', cursor: 'pointer' }}>DESIGN CANVAS</a>
             <div style={{ fontFamily: 'var(--g-mono)', fontSize: 10, color: 'var(--g-fg-3)', letterSpacing: '0.1em' }}>
-              ◈ GRP · V.01 · 2026 · 701-339-9802
+              ◈ GRP · V.01 · 2026 · WILSON BROS. GRAPPLING
             </div>
           </div>
         </div>

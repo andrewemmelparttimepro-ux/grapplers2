@@ -172,9 +172,9 @@ function ProfileScreen({ athleteId, onBack, onBookLesson, onBuyInstructional, on
             </div>
             <div className="g-eyebrow" style={{ marginBottom: 10 }}>RECENT COMPETITIONS</div>
             {[
-              { e: 'ADCC West Coast Trials', r: 'Finalist', d: 'Sep 2024' },
-              { e: 'Jiu-Jitsu World League', r: 'Won by heel hook · R2', d: 'Jun 2024' },
-              { e: 'IBJJF No-Gi Pan', r: 'Bronze', d: 'Oct 2023' },
+              { e: 'ADCC Opens · Texas',          r: 'Crucifix / M-plata finish over Ben Eddie', d: 'Aug 2024' },
+              { e: 'PGF · Colorado Wolverines',   r: 'Franchise player, season 2',                d: 'Spring 2025' },
+              { e: 'Wilson Bros. Invitational',   r: 'Submitted Andrew Tackett',                  d: 'Mar 2023' },
             ].map(m => (
               <div key={m.e} style={{ display: 'flex', gap: 12, padding: '10px 0', borderBottom: '1px solid var(--g-border)' }}>
                 <div style={{ fontFamily: 'var(--g-mono)', fontSize: 10, color: 'var(--g-fg-3)', letterSpacing: '0.08em', width: 70 }}>{m.d.toUpperCase()}</div>

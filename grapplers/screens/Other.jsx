@@ -45,10 +45,10 @@ function ThreadScreen({ athlete, onBack }) {
   const saved = state.threadMessages?.[athlete.id];
   const seed = [
     { from: 'them', t: '9:12 AM', text: 'Saw your DM — yes, Saturday privates are open.' },
-    { from: 'me',   t: '9:14 AM', text: 'Great. Looking for leg lock work mostly, some guard retention.' },
+    { from: 'me',   t: '9:14 AM', text: 'Cool. Looking for High Ground + some crucifix work.' },
     { from: 'them', t: '9:16 AM', text: 'Perfect. 10:30 or 12:00?' },
     { from: 'me',   t: '9:17 AM', text: '10:30.' },
-    { from: 'them', t: '9:18 AM', text: 'Locked in. $180, bring gi + no-gi.' },
+    { from: 'them', t: '9:18 AM', text: 'Locked in. $200, no gi + rashguard, bring mouthguard.' },
   ];
   const msgs = saved && saved.length ? saved : seed;
   const [draft, setDraft] = useState('');
@@ -73,8 +73,9 @@ function ThreadScreen({ athlete, onBack }) {
     const replyBank = [
       'Sounds good.', 'Roger. See you then.',
       `Got it — I'll queue up ${athlete.specialties[0].toLowerCase()} work.`,
-      'Confirmed. Bring a mouthguard.',
+      'Confirmed. Bring a mouthguard and rashguard.',
       'Copy. Add $20 if you want video review after.',
+      'Heard. We can hit crucifix entries first, then drill the M-plata.',
     ];
     const pick = replyBank[Math.floor(Math.random() * replyBank.length)];
     setTimeout(() => {
@@ -412,7 +413,7 @@ function OnboardingScreen({ onComplete }) {
           <div className="g-eyebrow" style={{ color: 'var(--g-mat-hi)', marginBottom: 18 }}>◈ WELCOME TO</div>
           <GWordmark size={48} />
           <div style={{ fontSize: 14, color: 'var(--g-fg-2)', marginTop: 20, lineHeight: 1.55 }}>
-            A marketplace for grapplers who actually train. Built in Minot, ND. No rented workflows. No per-seat fees.
+            A marketplace for grapplers who actually train. Built by Wilson Bros. in Colorado Springs. No rented workflows. No per-seat fees.
           </div>
           <div style={{ margin: '40px 0 16px' }}>
             <div className="g-eyebrow" style={{ marginBottom: 12 }}>I AM A…</div>
@@ -435,7 +436,11 @@ function OnboardingScreen({ onComplete }) {
               </div>
             ))}
           </div>
-          <GBtn variant="chrome" size="lg" onClick={() => setStep(role === 'athlete' ? 2 : 3)} style={{ width: '100%' }}>
+          <GBtn variant="chrome" size="lg" onClick={() => {
+            // Athlete path skips the built-in "verify" step — the Claim flow handles it.
+            if (role === 'athlete') onComplete(role);
+            else setStep(3);
+          }} style={{ width: '100%' }}>
             Continue →
           </GBtn>
           <div style={{ fontFamily: 'var(--g-mono)', fontSize: 9, color: 'var(--g-fg-3)', textAlign: 'center', marginTop: 30, letterSpacing: '0.1em' }}>
