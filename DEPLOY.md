@@ -6,13 +6,9 @@ Pure static site. No build step. Just upload and go.
 
 ## What's in the package
 
-- `index.html` — the real, live app (marketing → onboarding → mobile app, responsive, persistent)
-- `Grapplers.html` — the design canvas viewer (all artboards, zoomable)
+- `index.html` — the live app (marketing → onboarding → mobile app, responsive, persistent)
 - `grapplers/` — React/JSX components, tokens, data, screens, `AppRoot.jsx`
-- `vercel.json` — routes:
-  - `/` → `index.html` (live app)
-  - `/canvas` → `Grapplers.html` (design canvas)
-  - `/app` → `index.html`
+- `vercel.json` — routes `/` and `/app` to `index.html`
 
 ## Option A — Vercel CLI (fastest)
 

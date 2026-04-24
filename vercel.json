@@ -5,7 +5,6 @@
   "trailingSlash": false,
   "rewrites": [
     { "source": "/", "destination": "/index.html" },
-    { "source": "/canvas", "destination": "/Grapplers.html" },
     { "source": "/app", "destination": "/index.html" }
   ],
   "headers": [

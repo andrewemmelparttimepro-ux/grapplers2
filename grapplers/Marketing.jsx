@@ -1,8 +1,7 @@
 // Grapplers — Marketing web page (NDAI-style hero, chrome wordmark, dark). Responsive.
 
-function MarketingPage({ onEnter, onOpenCanvas }) {
+function MarketingPage({ onEnter }) {
   const enter = onEnter || window.__grapplersEnter || (() => {});
-  const openCanvas = onOpenCanvas || window.__grapplersCanvas || (() => { location.href = 'Grapplers.html'; });
   const [mobile, setMobile] = React.useState(typeof window !== 'undefined' && window.matchMedia('(max-width: 820px)').matches);
   React.useEffect(() => {
     const mq = window.matchMedia('(max-width: 820px)');
@@ -30,7 +29,6 @@ function MarketingPage({ onEnter, onOpenCanvas }) {
               ].map(([l, id]) => (
                 <a key={l} href={'#' + id} style={{ fontSize: 13, color: 'var(--g-fg-2)', fontWeight: 500, cursor: 'pointer', letterSpacing: '-0.005em', textDecoration: 'none' }}>{l}</a>
               ))}
-              <GBtn variant="ghost" size="sm" onClick={openCanvas}>Design canvas</GBtn>
               <GBtn variant="mat" size="sm" onClick={enter}>Open app →</GBtn>
             </div>
           )}
@@ -216,11 +214,8 @@ function MarketingPage({ onEnter, onOpenCanvas }) {
             <GWordmark size={18} />
             <span style={{ fontFamily: 'var(--g-mono)', fontSize: 11, color: 'var(--g-fg-3)', letterSpacing: '0.08em' }}>· AN NDAI CLIENT · MINOT, ND</span>
           </div>
-          <div style={{ display: 'flex', gap: 18, alignItems: 'center' }}>
-            <a onClick={openCanvas} style={{ fontFamily: 'var(--g-mono)', fontSize: 10, color: 'var(--g-fg-3)', letterSpacing: '0.1em', cursor: 'pointer' }}>DESIGN CANVAS</a>
-            <div style={{ fontFamily: 'var(--g-mono)', fontSize: 10, color: 'var(--g-fg-3)', letterSpacing: '0.1em' }}>
-              ◈ GRP · V.01 · 2026 · WILSON BROS. GRAPPLING
-            </div>
+          <div style={{ fontFamily: 'var(--g-mono)', fontSize: 10, color: 'var(--g-fg-3)', letterSpacing: '0.1em' }}>
+            ◈ GRP · V.01 · 2026 · WILSON BROS. GRAPPLING
           </div>
         </div>
       </footer>

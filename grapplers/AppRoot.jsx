@@ -160,14 +160,13 @@ function AppRoot() {
   React.useEffect(() => { localStorage.setItem(LS_ROUTE, route); }, [route]);
   React.useEffect(() => { localStorage.setItem('grapplers.role', role); }, [role]);
 
-  // Deep-link support: ?r=app&role=athlete or ?r=canvas
+  // Deep-link support: ?r=app&role=athlete
   React.useEffect(() => {
     const q = new URLSearchParams(location.search);
     const r = q.get('r');
     const rl = q.get('role');
     if (rl === 'athlete' || rl === 'student') setRole(rl);
     if (r === 'app' || r === 'onboarding' || r === 'marketing') setRoute(r);
-    if (r === 'canvas') { location.href = 'Grapplers.html'; }
   }, []);
 
   // Browser back button
@@ -188,7 +187,7 @@ function AppRoot() {
     history.pushState({}, '', '?' + q.toString());
   };
 
-  if (route === 'marketing') return <MarketingApp onEnter={() => go('onboarding')} onOpenCanvas={() => { location.href = 'Grapplers.html'; }} />;
+  if (route === 'marketing') return <MarketingApp onEnter={() => go('onboarding')} />;
   if (route === 'onboarding') return <OnboardingFlow onComplete={(r) => go('app', r)} onBack={() => go('marketing')} />;
   // route === 'app'
   return (
@@ -199,16 +198,15 @@ function AppRoot() {
 }
 
 // Marketing wrapper — injects a working "Open app" CTA + wraps the responsive landing
-function MarketingApp({ onEnter, onOpenCanvas }) {
-  // Provide CTA handler via window so MarketingPage's buttons can call it (we wrap below)
+function MarketingApp({ onEnter }) {
+  // Provide CTA handler via window so MarketingPage's buttons can call it
   React.useEffect(() => {
     window.__grapplersEnter = onEnter;
-    window.__grapplersCanvas = onOpenCanvas;
-    return () => { window.__grapplersEnter = null; window.__grapplersCanvas = null; };
-  }, [onEnter, onOpenCanvas]);
+    return () => { window.__grapplersEnter = null; };
+  }, [onEnter]);
   return (
     <div style={{ background: 'var(--g-obsidian)' }}>
-      <MarketingPage onEnter={onEnter} onOpenCanvas={onOpenCanvas} />
+      <MarketingPage onEnter={onEnter} />
     </div>
   );
 }
