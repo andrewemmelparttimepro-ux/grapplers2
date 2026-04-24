@@ -1,0 +1,108 @@
+/* ─────────────────────────────────────────────────────────────────────────
+   GRAPPLERS — brand tokens
+   Built on NDAI's dark/chrome bones. Accent swap: mat blue (tatami)
+   Belt spectrum used only for rank chips.
+   ───────────────────────────────────────────────────────────────────────── */
+@import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Barlow+Condensed:wght@500;600;700;800;900&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap");
+
+:root {
+  /* Surfaces — inherit NDAI carbon family */
+  --g-obsidian: #050608;
+  --g-carbon:   #0A0B0D;
+  --g-graphite: #131519;
+  --g-graphite-2: #1b1e24;
+  --g-graphite-3: #262a32;
+  --g-soft:    #F0F1F3;
+  --g-pure:    #FFFFFF;
+
+  /* Chrome — logo substance (inherited) */
+  --g-chrome-100: #ffffff;
+  --g-chrome-300: #cfd1d6;
+  --g-chrome-500: #6e7280;
+  --g-chrome-700: #2e3038;
+  --g-gradient-chrome: linear-gradient(180deg, #f6f7f9 0%, #dcdee3 22%, #9ea2ac 48%, #5c5f6a 62%, #b7bac2 82%, #e9eaee 100%);
+
+  /* ACCENT — mat blue (tatami). Replaces NDAI green as the signal color. */
+  --g-mat:      #1E6FFF;
+  --g-mat-hi:   #4A8CFF;
+  --g-mat-lo:   #0B4FC8;
+  --g-mat-ink:  #001B47;
+
+  /* Belt rank spectrum — chips only */
+  --g-belt-white:  #E9E3D3;
+  --g-belt-blue:   #2B6BD6;
+  --g-belt-purple: #7738B6;
+  --g-belt-brown:  #6B4423;
+  --g-belt-black:  #0A0A0A;
+
+  /* Secondary — oxblood kept from NDAI, used only for urgent/warn */
+  --g-oxblood:  #b8252a;
+  --g-amber:    #f6a23c;
+  --g-ok:       #22DD88;
+  --g-danger:   #e13a3a;
+
+  /* Foreground */
+  --g-fg-1: #F0F1F3;
+  --g-fg-2: #A4A7B1;
+  --g-fg-3: #6E7280;
+  --g-fg-4: #3A3C44;
+
+  /* Borders */
+  --g-border: rgba(255,255,255,0.08);
+  --g-border-strong: rgba(255,255,255,0.16);
+  --g-border-chrome: rgba(255,255,255,0.28);
+
+  /* Fonts */
+  --g-display:   "Space Grotesk", "Helvetica Neue", Arial, sans-serif;
+  --g-condensed: "Barlow Condensed", "Oswald", "Impact", sans-serif;
+  --g-sans:      "Inter", ui-sans-serif, system-ui, sans-serif;
+  --g-mono:      "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+
+  /* Shadows */
+  --g-shadow-sm: 0 1px 2px rgba(0,0,0,0.4);
+  --g-shadow-md: 0 8px 24px rgba(0,0,0,0.45);
+  --g-shadow-lg: 0 24px 60px rgba(0,0,0,0.6);
+  --g-shadow-mat: 0 8px 28px rgba(30, 111, 255, 0.28);
+  --g-shadow-chrome: 0 1px 0 rgba(255,255,255,0.3) inset, 0 -1px 0 rgba(0,0,0,0.4) inset, 0 6px 18px rgba(0,0,0,0.55);
+
+  /* Radii */
+  --g-r-sm: 4px; --g-r-md: 8px; --g-r-lg: 12px; --g-r-xl: 16px; --g-r-2xl: 24px; --g-r-pill: 999px;
+}
+
+* { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; background: var(--g-carbon); color: var(--g-fg-1); font-family: var(--g-sans); -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility; }
+
+/* Type helpers */
+.g-eyebrow { font-family: var(--g-display); font-size: 11px; font-weight: 500; letter-spacing: 0.22em; text-transform: uppercase; color: var(--g-fg-3); }
+.g-tech    { font-family: var(--g-mono); font-size: 11px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--g-fg-2); }
+.g-display { font-family: var(--g-display); font-weight: 700; letter-spacing: -0.02em; line-height: 1.02; }
+.g-condensed { font-family: var(--g-condensed); font-weight: 800; text-transform: uppercase; letter-spacing: -0.01em; line-height: 0.9; }
+.g-mono { font-family: var(--g-mono); }
+
+/* Chrome fill — the signature wordmark */
+.g-chrome-fill {
+  background: var(--g-gradient-chrome);
+  -webkit-background-clip: text; background-clip: text;
+  -webkit-text-fill-color: transparent; color: transparent;
+  filter: drop-shadow(0 1px 0 rgba(0,0,0,0.5));
+}
+
+/* Mat-blue signal dot */
+@keyframes g-pulse { 0%,100% { box-shadow: 0 0 0 0 rgba(30,111,255,0.6); } 50% { box-shadow: 0 0 0 8px rgba(30,111,255,0); } }
+.g-dot { display: inline-block; width: 8px; height: 8px; border-radius: 50%; background: var(--g-mat); animation: g-pulse 2s ease-out infinite; }
+
+/* Receipt hairline — endorsement stamp */
+.g-stamp-border {
+  border: 1px dashed rgba(255,255,255,0.22);
+}
+
+/* No scrollbar */
+.g-scroll::-webkit-scrollbar { display: none; }
+.g-scroll { scrollbar-width: none; }
+.g-nosel { user-select: none; -webkit-user-select: none; }
+
+/* Rise animation */
+@keyframes g-rise { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: none; } }
+.g-rise { animation: g-rise 0.5s cubic-bezier(0.2, 0.7, 0.2, 1) both; }
+
+::selection { background: var(--g-mat); color: #fff; }
